@@ -246,7 +246,7 @@
 % % author information %
 
 \author[\sc Michal SZOSTAKIEWICZ]{\sc Michal Szostakiewicz}
-\address{Anna Zdunik, Institute of Mathematics, Warsaw University,
+\address{Michal Szostakiewicz, Institute of Mathematics, Warsaw University,
 ul. Banacha 2, 02-097 Warszawa, Poland}
 \email{M.Szostakiewicz@mimuw.edu.pl}
 \author[\sc Mariusz URBA\'NSKI]{\sc Mariusz URBA\'NSKI}
@@ -266,7 +266,9 @@ ul. Banacha 2, 02-097 Warszawa, Poland}
 \thanks{The research of the second author supported in part by the
 NSF Grant DMS 1001874. The research of the first and third
 author supported in 
-part by the Polish MNiSW Grants N N201 0234 33 and N N201 607940}
+part by the Polish NCN  Grant
+%N N201 0234 33 and 
+N N201 607940}
 \keywords{
 Holomorphic dynamics, complex projective spaces,
 Julia sets, topological pressure, equilibrium states, H\"older
@@ -288,7 +290,7 @@ the Central Limit Theorem and the Law of Iterated Logarithm for such
 class of variables satisfying the natural co-boundary condition. We
 also show that the topological pressure
 function $t\mapsto P(t\phi)$ is real--analytic throughout the open set
-of parameters $t$ for which  the potenials $t\phi$ have pressure gaps.
+of parameters $t$ for which  the potentials $t\phi$ have pressure gaps.
 \end{abstract}
 
 \maketitle
@@ -303,7 +305,7 @@ the topological support of the measure of maximal entropy. The map
 $f:\Pk\to\Pk$ is called regular if its exceptional set $E=E(f)$ does
 not intersect the Julia set $J=J(f)$. Let $\phi:J(f)\to\R$ be a
 continuous function, in the 
-sequel frequently refered to as a potential. By $P(\phi)$  
+sequel frequently referred to as a potential. By $P(\phi)$  
 we denote the (classical) topological pressure of the potential $\phi$
 with respect to the dynamical system $f:J(f)\to J(f)$. Its definition
 and a systematic account of properties can be found for example in
@@ -351,18 +353,41 @@ class of variables satisfying the natural co-boundary condition. We
 also show in Theorem~\ref{t1ai1} that the topological pressure
 function $t\mapsto P(t\phi)$ 
 is real--analytic throughout the open set of parameters $t$ for which
-the potenials $t\phi$ have pressure gaps.
+the potentials $t\phi$ have pressure gaps.
 
 \sp\fr This paper is self-contained in the sense that all notions used
 are introduced and all the steps leading to the main theorems are
-explained. Majority of proofs however are exactly the same as those for the
-$1$--dimensional case delt with in \cite{SUZ1}, and pointing out the
+explained. Majority of proofs however are similar as those for the
+$1$--dimensional case dealt with in \cite{SUZ1}, and pointing out the
 particular fragment of \cite{SUZ1} we refer the
 reader to this paper for proofs.
 
 \
 
 \section{Good Holomorphic Inverse Branches}
+
+First, we recall that in \cite{uzpk} the equilibrium measure was constructed as a fixed point of the corresponding Perron- Frobenius operator. More precisely, assuming (which is always possible) that $P(\phi)=0$, we finally obtain the invariant density $\rho_phi$ as the unique fixed point of the operator $\mathcal{L}_\phi:C(J(f))\to C(J(f))$:
+$$\mathcal{L}_\phi(\rho)(x)=\sum_{y\in f^{-1}(x)}\exp S_n\phi(y)\rho(y)$$
+and the unique conformal measure $m_\phi$ as the fixed point of the operator $\mathcal{L}_\phi^*$.
+The measure $d\mu_\phi$ is then equal 
+$$d\mu\phi=\rho_\phi d m_\phi.$$
+
+Note that
+
+$\exp(-\phi)$
+is the Jacobian of the measure $m_\phi$
+while
+\begin{equation}\label{tilde}
+\exp(-\tilde\phi)=\frac{\rho_\phi\circ f}{\rho_\phi}\exp(-\phi)
+\end{equation}
+is the Jacobian of the measure $\mu_\phi$.
+
+{\bf do dowodu ponizej wcale nie trzeba zeby $\rho$ bylo ciagle; wystarczy wiedziec ze miara $\mu_\phi$ jest rownowazna mierze $m_\phi$ z gestoscia ograniczona z gory i z dolu. Do tego zas wystarczy wiedziec ze iteracje $\mathcal{L}_\phi(\1)$ sa wsponie ograniczone z gory i z dolu.}
+
+\
+
+From now on, we assume that $P(\phi)=0$.
+
 
 \sp\fr Given an open connected subset $W$ of $\Pk$ and given an
 integer $n\ge 1$, we denote by $I_n(W)$ the collection of all
@@ -371,43 +396,104 @@ W$ is a bijection (equivalently an injection), we set
 $$
 f_V^{-n}:=(f|_V^n)^{-1}:W\to V.
 $$
-We denote the callection of all such components by $\PG_n(W)$ and
-refere to them as pre-good components. Of course, if $V\in\PG_n(W)$,
+We denote the collection of all such components by $\PG_n(W)$ and
+refer to them as pre-good components. Of course, if $V\in\PG_n(W)$,
 then the map $f_V^{-n}:W\to V$ is a holomorphic homeomorphism from $W$
 to $V$. We call it the holomorphic inverse branch of $f^n$ from $W$ to
-$V$. The main result of this section is the following.
+$V$. 
 
 \
 
+
+It follows from the assumption that there exists $\delta>0$ such that 
+
+$$\inf (\phi)\ge\sup(\phi)-(1-\delta)\log d.$$
+
+Using the above notation, we have:
+
+$$
+\aligned
+1=\lambda=\int \mathcal{L}_\phi\1dm_\phi=&\int\sum_{w\in f^{-1}(z)}\exp\phi(w)dm_\phi\ge d^k\exp(\inf\phi)\\
+&=\exp(k\log d +\inf (\phi))\ge \exp((k-1+\delta)\log d+\sup\phi))
+\endaligned
+$$
+
+
+Using this, we get
+
+$$\exp(\phi(z))\le \exp(-(k-1+\delta)\log d)=d^{-(k+1+\delta)}.$$
+
+Thus,
+
+$$\exp(S_n\phi(z))\le d^{-n(k-1+\delta)}$$
+
+and
+
+\begin{equation}
+\exp(S_n\tilde\phi(z))\le Md^{-n(k-1+\delta)}
+\end{equation}
+where $M=\sup \rho_\phi\cdot \frac{1}{\inf \rho_\phi}$.
+
+The proof of the following Proposition is now immediate:
+
+\begin{prop}\label{miara_galezi}
+If  $V\in\PG_n(W)$, i.e. $V$ is a pre- good component of $f^{-n}W$ then 
+$$\mu_\phi(V)\le Md^{-(k-1+\delta)}\mu_\phi(W)$$
+\end{prop}
+
+
+The main technical tool which allows us to proceed the construction  is the following.
+
+\
+
+Given $l\in\mathbb{N}$, denote by $PC_l$ the postcritical set of the map $f^l$, i.e.
+$$PC_l=f^l({\rm Crit}(f^l).$$
+
 \blem\label{l1fiw20110702}
-For every $\g\in (0,1)$ and for every $\e>0$ there exist some integers
-$l,q\ge 1$ and real numbers $\eta\in (0,1)$ and $\th>0$ such that if
-$B$ is an arbitrary open ball centered at a point from the Julia set $J$, and if
-$(1+\eta)^2B$ is disjoint from the set $\PC_l$, then for every integer $n\ge 1$
-there exists a subset $G_n(B)\sbt \PG_{qn}(B)$ with the following properties. 
+Fix $\delta$ as above. Let $\theta=d^{-\frac{\delta}{2}}<1$. Then there exists $\eta>0$ such that, for every $\varepsilon>0$ there exist $l\in\mathbb{N}$ and $C<\infty$ such that 
+
+
+%For every $\g\in (0,1)$ and for every $\e>0$ there exist some integers
+%$l,q\ge 1$ and real numbers $\eta\in (0,1)$ and $\th>0$ such that 
+if $B$ is an arbitrary open ball centered at a point from the Julia set $J$, and if
+$B$ is disjoint from the set $\PC_l$, $B''=\eta B$,  then for every integer $n\ge 1$
+there exists a subset  of components of   $G_n( B'')\sbt \PG_{n}(B'')$ with the following properties. 
 
 \begin{itemize}
 
-\sp\item[(a)] For every $V\in G_n(B)$ there exists
-              $W\in\PG_{qn}((1+\eta)B)$ such that $V\sbt W$.
+\sp\item[(a)] If $V\in G_{n+1}(B'')$, then $f(V)\in G_n(B'')$.
 
-\sp\item[(b)] If $V\in G_{n+1}(B)$, then $f^q(V)\in G_n(B)$.
+\sp\item[(b)] If $V\in G_{n}(B'')$, then $\diam(V)\le C \theta^n$.
 
-\sp\item[(c)] If $V\in G_{n+1}(B)$, then $\diam(V)\le \g^n$.
-
-\sp\item[(d)] $\mu_\phi\(\bu G_n(B)\)\ge (1-\e)\mu_\phi(B)$, where
-              $\bu G_n(B):=\bu\{V:V\in G_n(B)\}$  
-\sp\item[(e)] $\mu_\phi\(\bu B_n(B)\)\le e^{-\th qn}$, \nl
+\sp\item[(c)] $\mu_\phi\(\bu G_n(B'')\)\ge (1-\e)\mu_\phi(B)$, where
+              $\bu G_n(B''):=\bu\{V:V\in G_n(B'')\}$  
+%\sp\item[(e)] $\mu_\phi\(\bu B_n(B'')\)\le e^{-\th qn}$, \nl
               where
               $B_n(B)$ consists of all connected components of the sets
-              $f^{-qn}(V)$, $V\in G_{n-1}(B)$ that do not belong to 
+              $f^{-n}(V)$, $V\in G_{n-1}(B'')$ that do not belong to 
               $G_n(B)$ and  $\bu G_n(B):=\bu\{V:V\in G_n(B)\}$. 
+\sp\item[(d)] There exists $\beta>0$ such that $\mu_\phi(\bu B_n(B'')) \le\exp(-\beta n)$, where  $B_n(B'')$              
+              consists of all connected components of the sets
+              $f^{-n}(V)$, $V\in G_{n-1}(B'')$ that do not belong to 
+              $G_n(B'')$ and  $\bu B_n(B''):=\bu\{V:V\in B_n(B'')\}$. 
+              
+\sp\item[(e)] $\sup_z B_n(z)\le\exp(-\beta n)$ where $B_n(z)=\sum_{w\in f^{-n}(z)\cap \bu B_n(B'')}\exp S_n\varphi(w)$.   
+
+%\sp\item[(a)] For every $V\in G_n(B)$ there exists
+              %$W\in\PG_{n}((1+\eta)B)$ such that $V\sbt W$.
+           
 \end{itemize}
 \elem
 
 \
+\begin{proof} It can be deduced from  the  proof of  the similar result for the measure of maximal entropy, see \cite{gue}, p.1599.
+The difference is that, here, we have to estimate not only the number of "bad" components $B_n$ (which is sufficient for the case of maximal measure) but also the measure $\mu_\phi$ of their union. The estimate (d) can be easily deduced from  \cite{gue}, using Corollary~\ref{miara_galezi} above (the estimate of the measure of a pre-good component).
+{\bf tu by trzeba dopisac (male!) pare  zdan: czy pan Michal by mogl? Bardzo skrotowa wersje dowodu z Pana doktoratu. NIe wydaje mi sie wlasciwe pisanie tego lematu w takiej dokladnosci jak jest u Guedja. Natomiast w doktoracie- oczywiscie tak!}
 
-\fr Applying Cauchy's formulas for partial derivatives, we directly
+\end{proof}
+
+
+\fr  For $\eta$ as in the statement of Lemma~\ref{l1fiw20110702}, put $B'=\frac{1}{2}\eta B=\frac{1}{2}B''$. Applying Cauchy's formulas for partial derivatives, we directly
 obtain from Lemma~\ref{l1fiw20110702} the following.
 
 \
@@ -416,31 +502,105 @@ obtain from Lemma~\ref{l1fiw20110702} the following.
 With the hypotheses of Lemma~\ref{l1fiw20110702} we have that there
 exists a constant $C_\eta>0$ such that
 $$
-||Df_V^{-n}||_\infty\le C_\eta\g^n
+||Df_V^{-n}(z)||\le C_\eta\theta^n
 $$
-for all $n\ge 0$ and all $V\in G_n(B)$.
+for all $n\ge 0$ and all $V\in G_n(B'')$ and all $z\in B'=\frac{1}{2}\eta B$.
 \ecor
 
+{\bf Notation}
+
+From now on, we frequently write $G_n$, $B_n$, instead of $G_n(B')$, $B_n(B')$.
+
+As in  Lemma~\ref{l1fiw20110702}, item (e), we denote   $B_n(z)=\sum_{w\in f^{-n}(z)\cap \bu B_n(B')}\exp S_n\varphi(w)$.
+
+Since we shall need to pass several times to an iterate, we now introduce the following notation:
+$G^{f^m}_n$ denotes the family of good components $G_{mn}$. 
+
+Next, $B^{f^m}_n$ equals, roughly speaking $f^{-m}(G^{f^m}_{n-1})\setminus G^{f^m}_n$, or, more precisely,
+ $B^{f^m}_n$ consists of those components of the sets $f^{-m}V$ ($V\in G^{f^m}_{n-1}$), which are not in $G^{f^m}_n$.
+
+Accordingly, we put
+$$B_n^{f^m}(z)=\sum_{w\in f^{-nm}(z)\cap \bu B_n^{f^m}(B')}\exp S_{nm}\tilde\varphi(w).$$
+ \
+  
+\begin{lem}\label{q} There exists a constant $C=C(\beta)$ such that, for all $q\ge l$, $n\ge 2$, 
+
+$$B^{f^q}_n(z)<C\exp(-\beta(n-1)q)$$
+\end{lem}
+\begin{proof}
+First, notice that 
+
+$$B^{f^q}_n=f^{-q}(G_{q(n-1)}\setminus G_{qn}=\bigcup _{(n-1)q<k\le nq}f^{-(nq-k)}(B_k).$$
+Thus, (remember that $\mathcal{\L}(\1)=\1$, and, consequently, for every set $A$, and every $m$,  $\mathcal{\L}(\1_{f^{-m}(A)}=\1_{A}$!)
+$$
+\aligned
+B_n^{f^q}(z)=&\mathcal{L}^{nq}_{\tilde\phi}\1_{B^{f^q}_n}(z)=
+\sum _{(n-1)q<k\le nq}\mathcal{L}^{nq}_{\tilde\phi}\1_{f^{-(nq-k)}(B_k)}(z)=
+\sum_{(n-1)q<k\le nq}\mathcal{L}^k_{\tilde\phi}\1_{B_k}(z)=\\
+&\sum_{(n-1)q<k\le nq}B_k(z)\le \sum_{(n-1)q<k\le nq}\exp(-\beta k)=\frac{\exp(-\beta)}{1-\exp(-\beta)}\exp(-\beta(n-1)q)
+\endaligned
+$$
+\end{proof}
+\begin{cor}
+Let $q\ge l$; put $g=f^q$. There exists a constant $C_q$ such that, for all $n\ge 1$ and $z\in B'$, 
+$$B^q_n(z):=B^{f^q}(z)\le C_q\exp(-\beta nq).$$
+\end{cor}
+\begin{proof}
+This follows from Lemma~\ref{q}, putting 
+$$C_q=c\cdot \max(\exp(\beta q),\sup_zB^g_1(z)).$$
+\end{proof}
+In what follows, we shall need to pass to yet another iterate $h=g^r$. The corollary below gives an explicit bound for $B^h_n(z)$.
+
+\begin{cor}
+Let, as before, $g=f^q$, $q\ge l$.
+Now, let $r\ge 1$ and $n\ge 2$.
+Then
+$$B^h_n(z)\le C_q\exp(\frac{-n\beta qr}{2}).$$
+\end{cor}
+
+\begin{proof}
+Writing 
+$$B^h_n(z)=\bigcup_{(n-1)r<k\le nr}g^{-(nr-k)}B^g_k$$
+and using the same reasoning as in the proof of Lemma~\ref{q}, we get
+
+$$B^h_n(z)\le C C_q\exp(-\beta(n-1)qr).$$
+Since $n\ge 2$, $n-1\ge \frac{n}{2}$ and the result follows.
+
+\end{proof}
+
+ 
 \
 
 \fr Let 
 $$
 \phi_q=\sum_{j=0}^{q-1}\phi\circ f^j
 $$
-The most signifcant consequence of belongin to $G_n(B)$ is this.
-There exists a constant $C_q\ge 1$ such that for every $n\ge 1$, every
-$V\in G_n(B)$ and all $x,y\in V$, we have that 
-\begin{equation}\label{potentialdistortion}
-\frac{\exp\(S_n\phi_q(x)\)}{\exp\(S_n\phi_q(y)\)}\le C_q,
-\end{equation}
-where in here $S_n$ refers to Birkhoff's sums corresponding to the
-dynamical system $f^q:\Pk\to\Pk$.
+The most significant consequence of belonging to $G_n(B)$ is this.
 
-\
+{\bf Zmienilam tutaj (ponizej) tak zeby stala C zalezala tylko od $l$, nie od $q$. Bo zalezy tylko do $l$ (ktore pojawia sie w lemacie o dobrych galeziach). Rzecz w tym ze $q$ jest potem sztucznie podnoszone jeszcze, i to w sposob niekontrolowalny. ($q$ zalezy od kuli wybranej, i jest dobierane  z topologicznej dokladosci- chodzi o to zeby pokryc caly $J$ obrazami kuli}
+\begin{cor}
+There exists a constant $C_l$ such that, for all $n$, for every good component $V$ of the set $f^{_n}(B')$, and for  all $x,y\in V$, 
+
+\begin{equation}\label{potentialdistortion}
+\frac{\exp\(S_n\phi(x)\)}{\exp\(S_n\phi(y)\)}\le C_l, ~~{\rm and}~~\frac{\exp\(S_n\tilde \phi(x)\)}{\exp\(S_n\tilde \phi(y)\)}\le C_l
+\end{equation}
+\end{cor}
+
+%There exists a constant $C_q\ge 1$ such that for every $n\ge 1$, every
+%$V\in G_n(B)$ and all $x,y\in V$, we have that 
+%\begin{equation}\label{potentialdistortion}
+%\frac{\exp\(S_n\phi_q(x)\)}{\exp\(S_n\phi_q(y)\)}\le C_q,
+%\end{equation}
+%where in here $S_n$ refers to Birkhoff's sums corresponding to the
+%dynamical system $f^q:\Pk\to\Pk$.
+%{\bf stala $C_q$ wystepuje w dwoch znaczeniach}
+%\
 
 \section{Selection of the Root Ball}
 
-\sp\fr Simplyfying the proof of Lemma~9 in \cite{SUZ1}, we prove the
+First, note that the support of the  measure $\mu_phi$ is equal to $J(f)$. Thus, every ball intersecting $J(f)$ has a positive measure $\mu_phi$. 
+
+\sp\fr Simplifying the proof of Lemma~9 in \cite{SUZ1}, we prove the
 following.
 
 \
@@ -464,14 +624,20 @@ shall prove the following.
 
 \blem\label{l420110702}
 For every point $w\in J\sms\PC_l$ there exists a ball $B$ centered at
-$w$ such that $(1+\eta)B\cap\PC_l=\es$ and 
+$w$ such that
+% $(1+\eta)B\cap\PC_l=\es$ 
+ $\frac{2}{\eta}B\cap\PC_l=\es$
+and 
 $$
-\mu_\phi\(B(\bd B,\l^{-3n})\)\le\l^{-n}.
+\mu_\phi\(B(\bd B,\tilde\l^{n})\)\le\l^{-n}.
 $$
+with $\lambda$, $\tilde\lambda$ taken from Lemma\ref{l320110702}
+{\bf zmienilam $\lambda^{-3n}$ na $\tilde\lambda^{-n}$ i  $(1+\eta)B$ na $\frac{2}{\eta}B$ }
+
 \elem
 
 \begin{proof}
-Take any $R>0$ so small that $(1+\eta)B(w,R)\cap\PC_l=\es$ and consider
+Take any $R>0$ so small that $\frac{2}{\eta}B(w,R)\cap\PC_l=\es$ and consider
 the map $P:\ov B(w,R)\to[0,R]$ given by the formula
 $P(z)=||z-w||$. Applying Lemma~\ref{l320110702} to the measure
 $\mu_\phi\circ P^{-1}$ the assertion of Lemma~\ref{l420110702} immediately
@@ -482,11 +648,14 @@ follows.
 
 \section{Fine Inducing Scheme}\label{fis}
 
-\sp\fr Assume without loss of generality that $\P(\phi)=0$. Fix an
+%\sp\fr Assume without loss of generality that $\P(\phi)=0$. 
+Fix an
 integer $r\ge 1$ so large that
 \beq\label{120110706}
-C_\eta\g^r\le \frac14,
+C_\eta\theta^r\le \frac{1}{4},
 \eeq
+
+%{\bf sprawdzic, ta stala $\gamma$ wczesniej w tekscie nazywa sie chyba $\theta$?}
 where the constant $C_\eta$ comes from Corollary~\ref{c120110706}. More
 requirements on $r$ will be imposed later. Put 
 $$
@@ -494,29 +663,35 @@ h=f^{qr}:\Pk\to\Pk.
 $$
 and
 $$
-\phi_0:=\sum_{j=0}^{qr-1}\phi\circ f^j.
+\phi_0:=\sum_{j=0}^{qr-1}\phi\circ f^j,~~~~\tilde \phi_0:=\sum_{j=0}^{qr-1}\tilde\phi\circ f^j=\sum_{j=0}^{qr-1}\phi\circ f^j-\log\rho_\phi\circ f^{qr-1}+\log\rho_\phi
 $$
-Define
+Define  $\L_0$ as the normalized  Perron-Frobenius operator associated to the map
+$h:J\to J$.  It is given by the formula
 $$
-\L_0:=\L_\phi^{qr}:C(J)\to C(J).
+\L_0(\zeta)(x)=\sum_{y\in h^{-1}(x)}\zeta(y)\exp(\phi_0)(y)=\frac{1}{\rho_\phi(x)} \L_\phi\left (\zeta\cdot \rho_\phi\right )(x) 
 $$
-So, $\L_0$ is the Perron-Frobenius operator associated to the map
-$h:J\to J$ and potential $\phi_0:J\to\R$. It is given by the formula
-$$
-\L_0(g)(x)=\sum_{y\in h^{-1}(x)}g(y)\exp(\phi_0(y)).
-$$
-In exactly the same way as in \cite{uzpk} we can prove the following.
+Note that $\mathcal{L}_{0}(\1)=\1$. This is important in the proof below.
+\begin{rem}
+Actually, since $\rho_\phi$ is a continuous function, $\L_0$ acts (as well as $\L$) as a continuous linear operator in the space $C(J)$. 
+However, in the proof we do not use the continuity of $\rho_\phi$. The only fact we need is that $\rho_\phi$ is bounded away from $0$  and $\infty$.
+\end{rem}
+{\bf zmienilam $\phi$ na $\tilde\phi$ to znaczy unormowalam operator  tak zeby zachowywal jedynke (czyli zeby byl operatorem Markowa). Bez tego dowod lematu ponizej jest niepoprawny. Zreszta to zachowywanie jedynki bylo juz potrzebne wczesniej, w szacowaniach tych skladnikow $B_n$ dla iteracji.}
 
+
+
+
+The following, quite general Lemma was proved in \cite{uzpk}.
 \
+{\bf zmienilam $\beta$ na $\gamma$ bo $\beta$ wystepowalo w dwoch znaczeniach}
 
 \begin{lem}\label{czest}
-Assume that $Q\sbt\Pk$ is a set for which there exists $\beta>0$ such that 
+Assume that $Q\sbt\Pk$ is a set for which there exists $\gamma>0$ such that 
 \begin{equation}\label{frec}
-\mathcal{L}_h(1_{Q})(x)>\beta
+\mathcal{L}_0(1_{Q})(x)>\gamma
 \end{equation}
 for almost every $x\in J(f)$.
 Then there exist $\alpha\in (0,1)$, an integer $n_0\ge 0$, and
-$\delta>0$, all three depending on $\beta$ only (in particular
+$\delta>0$, all three depending on $\gamma$ only (in particular
 independent of $r\ge 1$), such that for all $n\ge n_0$ we have that,
 \begin{equation}
 \mu\lt(\lt\{x\in J(f):\#\left\{0\le i\le n: h^i(x)\in Q\right\} 
@@ -526,48 +701,58 @@ independent of $r\ge 1$), such that for all $n\ge n_0$ we have that,
 \end{lem}
 
 \
+\begin{rem}
+\fr In order to make this lemma useful for us, we need some  preparation. Note that, given $h$ (recall that $h=f^{rq}$) and an open set $Q$, it is easy to find $\gamma$ for which (\ref{frec}) is satisfied (the existence of such $\gamma$ follows directly from the topological exactness of the map). However, at this point we need to show that $\gamma$ can be chosen to be independent of $r$ (since $r$ will be modified in the course of the proof).
+\end{rem}
 
-\fr In order to make this lemma useable for us, we need the following.
+
+{\bf Fixing $q$}
+We fix $q$ at this point, in the following way: The ball $B'$ and $l$ have been already chosen {\bf napisac gdzie}, for $\varepsilon=\frac{1}{2}$.
+Since $f_{|J(f)}$ is topologically exact, there exists $N$ such that $f^N(B')=J(f)$. Next, let $q=\max (N,l)$. 
+
+
 
 \blem\label{l520110702}
-For every integer $q\ge 1$ large enough there exists $\b>0$ such that
+For every integer $q\ge l$  there exists $\gamma>0$ such that
 for every integer $r\ge 1$, we have for every $z\in J(f)$ that,
 $$
-\L_0(\1_Q)(z)\ge \b,
+\L_0(\1_Q)(z)\ge \gamma,
 $$
 where 
 $$
 Q:=Q_r:=\bu\{V:V\in G_{r-1}(B)\}.
 $$
 \elem
+{\bf uwaga: tutaj oznaczenie $G_{r-1}$ odnosi sie do iteracji $g=f^q$. trzeba uzgodnic te oznaczenia z wczesniejszymi}
+
+
 
 \begin{proof}
 As a straightforward consequence of Lemma~\ref{l1fiw20110702},
 particularly its item (c), and \eqref{potentialdistortion}, we get the
 following.
 \beq\label{1beta}
-\L_\phi^{q(r-1)}\1_Q(z)\ge (2C_q)^{-1}
+\L_\phi^{q(r-1)}\1_Q(z)\ge (2C_l)^{-1}
 \eeq
-for all $z\in B$. Now, invoking topological exactness of the dynamical
-system $f:J(f)\to J(f)$, take any $q\ge 1$ so large that $f^q(B)=J(f)$. For
+for all $z\in B$. By the choice of $q$, we have  $f^q(B)=J(f)$. Thus, for
 every $x\in J$ there then exists $y\in B$ such that
-$f^q(y)=x$. Apllying \eqref{1beta} we can then write
+$f^q(y)=x$. Applying \eqref{1beta} we can then write
 $$
 \aligned
 \L_0(\1_Q)(x)
-&\ge \exp\(S_q\phi(y)\)\L_\phi^{q(r-1)}\1_Q(y) \\
-&\ge (2C_q)^{-1}\exp\(S_q\phi(y)\) \\
-&\ge (2C_q)^{-1}\exp\(\inf\(S_q\phi\)\).
+&\ge \exp\(S_q\tilde\phi(y)\)\L_{\tilde\phi}^{q(r-1)}\1_Q(y) \\
+&\ge (2C_l)^{-1}\exp\(S_q\tilde\phi(y)\) \\
+&\ge (2C_l)^{-1}\exp\(\inf\(S_q\tilde\phi\)\).
 \endaligned
 $$
-Setting $\b$ to be the last number of this formula finishes the proof.
+Setting $\gamma$ to be the last number of this formula finishes the proof. It is important to notice here  that $\gamma$ depends on $q$, but it is independent of $r$.
 \end{proof}
 
 \
 
-\fr We say that a point $z\in B$ has a good pullback of length $n\ge
-1$ if $h^n(z)\in B$ and the connected component of $h^{-n}(B)$
-containg $z$ belongs to $G_{rn}(B)$. We frequently refer to this
+\fr We say that a point $z\in B'$ has a good pullback of length $n\ge
+1$ if $h^n(z)\in B'$ and the connected component of $h^{-n}(B')$
+containg $z$ belongs to $G^h_{n}(B')$. {\bf sprawdzic zgodnosc oznaczen}. We frequently refer to this
 component as a good pullback and denote it by $V_n(z)$. We further say
 that such a good pullback $V_n(z)$ is very good if for every $0\le j\le n-1$,
 $$
@@ -575,9 +760,9 @@ $$
 $$
 Note that if $r\ge 1$ is so large that 
 $$
-\g^r< \tilde\l^{-1},
+\theta^r< \tilde\l^{-1},
 $$
-then every good pullback $V$ is entirely contained in $B$. Now, the
+then every good pullback $V$ is entirely contained in $B'$. Now, the
 proof of Lemma~17 from \cite{SUZ1} goes verbatime in our present
 setting and it asserts this. 
 
@@ -635,10 +820,13 @@ $$
 It directly follows from Lemma~\ref{czest}, Lemma~\ref{l520110702},
 Lemma~\ref{Yn}, and Lemma~\ref{verygood} that 
 \beq\label{muphiX=1}
-\mu_\phi(X)=\mu_\phi(B).
+\mu_\phi(X)=\mu_\phi(B').
 \eeq
 Given $x\in X$ let $n(x)$ be the smallest integer $n\ge 1$ such that
-$x\in Z_n\sms(Y_n\cup R_n)$. We define
+the pullback $V_n(x)$ is very good.
+%$x\in Z_n\sms(Y_n\cup R_n)$.
+{\bf zmienilam tutaj, bo chyba nie bylo dobrze wczesniej}
+We define
 $$
 F(x)=h^{n(x)}(x).
 $$ 
@@ -660,7 +848,7 @@ way. We have just shown that the function $n:X\to\N$ is constant on
 each disc $D\in \mathcal D$, and so it can and will be treated as a
 function from $\mathcal D\to\N$. In particular, the map  
 $$
-F:\bigcup_{D\in\mathcal D}\to B
+F:\bigcup_{D\in\mathcal D}\to B'
 $$
 is well-defined and its inverse branches $F_D^{-1}:U\to D$,
 $D\in\mathcal D$, form an infinite iterated function
@@ -726,6 +914,8 @@ m_\phi(F(A))
 &=\int_A\exp\(-\hat\phi(x)\)dm_\phi(x).
 \endaligned
 $$
+{\bf sprawdzic czy oznaczenie $S_{qr}\phi$ jest zgodne z poprzednimi}
+
 Along with \eqref{fullmeasurelimisetIFS} this entails the following.
 
 \
@@ -762,18 +952,24 @@ to see that this operator is almost periodic.
 
 \
 
-\section{Real Analytyicity of Topological Pressure}
+\section{Real Analyticity of Topological Pressure}
+
+%\sp\fr For every H\"older continuous potential $\phi:J(f)\to\mathbb{R}$, let
+%$$
+%\Delta_\phi=\lt\{t\in\mathbb{R}:\sup_{n\ge 1}\lt(
+%  P(t\phi)-\frac{1}{n}\sup (S_n(t\phi))\rt)>0\rt\}.
+%$$
 
 \sp\fr For every H\"older continuous potential $\phi:J(f)\to\mathbb{R}$, let
-$$
-\Delta_\phi=\lt\{t\in\mathbb{R}:\sup_{n\ge 1}\lt(
-  P(t\phi)-\frac{1}{n}\sup (S_n(t\phi))\rt)>0\rt\}.
-$$
+$$\Delta_\phi=\lt\{t\in\mathbb{R}:\sup(t\phi)-\inf(t\phi)<\kappa_f\right \}$$
+(see Theorem~\ref{AA} for the definition of $\kappa_f$).
+{\bf zmienilam definicje $\Delta_\phi$ bo my chyba nie umiemy napisac twierdzenia o istnieniu stanu rownowagi wychodzac z zalozenia $P(\phi)>\sup \phi$}.
+
 Obviously, $\Delta_\psi$ is an open subset of $\mathbb{R}$. Having all
 the material of the previous sections 
 i.e. Section~\ref{fis} and Section~\ref{constr}, particularly 
 formula \eqref{expdecay20110622}, we can repeat verbatime Section~6,
-Real Analytyicity of the Pressure Function, from \cite{SUZ1} to get
+Real Analyticity of the Pressure Function, from \cite{SUZ1} to get
 the following. 
 
 \
@@ -866,7 +1062,7 @@ $\int R dm_0<\infty$ then the following hold.
 \sp\begin{enumerate}
 \item{} There exists a unique probability  
 $T$--invariant measure $\nu$, absolutely continuous with respect to
-$\tilde m$. The Radon-Niokodym derivative $d\nu/d\tilde m$ is bounded
+$\tilde m$. The Radon-Nikodym derivative $d\nu/d\tilde m$ is bounded
 from below by a positive constant. The dynamical system $(T,\nu)$ is
 exact, thus ergodic. 
 \sp\item{} If $m_0(R>n)=O(\theta^n)$ for some $0<\theta<1$, then there
@@ -942,7 +1138,7 @@ for all $0\le j\le n(D)$.
 Note that $s(x,y)\ge 1$. Fix $0\le j\le n(D)$. It follows from
 Corollary~\ref{c120110706} that
 $\dist(h^j(x),h^j(y))\le\dist(h^{n(D)}(x),h^{n(D)}(y))$. But
-$s(h^{n(D)}(x),h^{n(D)}(y))=s(x,y)-1$, it therefore follows from the 
+$s(h^{n(D)}(x),h^{n(D)}(y))=s(x,y)-1$. Tt therefore follows from the 
 previous lemma, that
 $$
 \dist(h^j(x),h^j(y))
@@ -950,7 +1146,7 @@ $$
 \le C2^{-s(h^{n(D)}(x),h^{n(D)}(y))}
 =   2C2^{-s(x,y)}.
 $$
-We are done. 
+ 
 \end{proof}
 
 \
@@ -1044,7 +1240,7 @@ Lemma~\ref{l120110707}.
 Thus, the function $\sum_{D\in\cD}\sum_{0\le n<n(D)}J_{D,n}$ is integrable
 with respect to the measure $m_\phi$. This implies immediately that
 the measure $\tilde m_\phi\circ\pi^{-1}$ is absolutely continuous with
-respect to the measure $m_\phi$ with the Radon--Nikodyma derivative
+respect to the measure $m_\phi$ with the Radon--Nikodym derivative
 equal to $\sum_{D\in\cD}\sum_{0\le n<n(D)}J_{D_i,n}$.  
 Hence, the measure $\nu\circ\pi^{-1}$ is also absolutely continuous
 with respect to $m_\phi$. Since $\nu$ is $F$--invariant and $\pi\circ
@@ -1078,7 +1274,7 @@ For the dynamical system $(f,\mu_\phi)$ the following hold.
   function $\psi:J(f)\to\mathbb{R}$, we have that
 $$
 \bigg|\int\psi\circ f^n \cdot g d\mu_\phi
--\int g d\\mu_\phi\int\psi d\mu_\phi\bigg|
+-\int g d\mu_\phi\int\psi d\mu_\phi\bigg|
 =O(\theta^n)
 $$
 for some $0<\theta<1$ depending on $\alpha$.
@@ -1121,6 +1317,8 @@ $$
 
 
 \begin{thebibliography}{9999999}
+
+\bibitem[Gue]{gue} Vincent Guedj, Ergodic properties of rational mappings with large topological degree, Annals of Mathematics (2), 161 (2005), 1589-1607
 
 \bibitem[MU2]{mu} 
 D. Mauldin, M.Urba\'nski, Graph directed Markov
