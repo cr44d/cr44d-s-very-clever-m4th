@@ -1,0 +1,1166 @@
+\documentclass[12pt]{amsart}
+
+\usepackage{amsfonts,amsthm,amsmath,amssymb,amscd}
+
+%(4.4) ---  (\ref{3093006N14p207a})
+%\beq\label{4a100a}
+%\log\l-\sup(\phi)-(k-1)\log d\ge \log\l-\sup(\phi)+\ka_f - k\log d>\th.
+%\eeq
+
+
+% "American" setting:
+%\setlength{\topmargin}{0in} \setlength{\oddsidemargin}{0in}
+%\setlength{\evensidemargin}{0in} \setlength{\textwidth}{6.4in}
+%\setlength{\textheight}{8.6in}
+
+%\usepackage{showkeys}
+%\usepackage{diagrams}
+%\usepackage{amsmath, amstext, amsthm, amsfonts, latexsym, color}
+\usepackage{dsfont}
+\usepackage{upref}
+\usepackage[textures,backref,bookmarks=false]{hyperref}
+\usepackage{mathrsfs}
+
+
+% "French" setting:
+\setlength{\topmargin}{1.5cm}
+\evensidemargin 0.4truein\oddsidemargin 0.4truein
+\textheight7.9truein
+\textwidth5.9truein
+
+
+\numberwithin{equation}{section}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Parabolic, fractal measures
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\input epsf
+
+\setlength{\itemsep}{0in}\newcommand{\lab}{\label}
+\newcommand{\labeq}[1]{  \be \label{#1}  }
+\newcommand{\labea}[1]{  \bea \label{#1}  }
+\newcommand{\ben}{\begin{enumerate}}
+\newcommand{\een}{\end{enumerate}}
+\newcommand{\bm}{\boldmath}
+\newcommand{\Bm}{\Boldmath}
+\newcommand{\bea}{\begin{eqnarray}}
+\newcommand{\ba}{\begin{array}}
+\newcommand{\bean}{\begin{eqnarray*}}
+\newcommand{\ea}{\end{array}}
+\newcommand{\eea}{\end{eqnarray}}
+\newcommand{\eean}{\end{eqnarray*}}
+\newcommand{\beq}{\begin{equation}}
+\newcommand{\eeq}{\end{equation}}
+\newcommand{\bthm}{\begin{thm}}
+\newcommand{\ethm}{\end{thm}}
+\newcommand{\blem}{\begin{lem}}
+\newcommand{\elem}{\end{lem}}
+\newcommand{\bprop}{\begin{prop}}
+\newcommand{\eprop}{\end{prop}}
+\newcommand{\bcor}{\begin{cor}}
+\newcommand{\ecor}{\end{cor}}
+\newcommand{\bdfn}{\begin{dfn}}
+\newcommand{\edfn}{\end{dfn}}
+\newcommand{\brem}{\begin{rem}}
+\newcommand{\erem}{\end{rem}}
+\newcommand{\bpf}{\begin{proof}}
+\newcommand{\epf}{\end{proof}}
+\newcommand{\bfact}{\begin{fact}}
+\newcommand{\efact}{\end{fact}}
+
+
+\newcommand{\lb}{\linebreak}
+\newcommand{\nlb}{\nolinebreak}
+\newcommand{\nl}{\newline}
+\newcommand{\hs}{\hspace}
+\newcommand{\vs}{\vspace}
+\alph{enumii} \roman{enumiii}
+
+\newtheorem{thm}{Theorem}[section]
+\newtheorem{prop}[thm]{Proposition}
+\newtheorem{lem}[thm]{Lemma}
+\newtheorem{sublem}[thm]{Sublemma}
+\newtheorem{cor}[thm]{Corollary}
+\newtheorem{dfn}[thm]{Definition}
+\newtheorem{rem}[thm]{Remark}
+\newtheorem{fact}[thm]{Fact}
+\newtheorem{as}[thm]{Assumption}
+%********************** Letters "cal" :  \cXXX   *******************************
+\def\cA{\mathcal A}             \def\cB{\mathcal B}       \def\cC{\mathcal C}
+\def\cH{\mathcal H}             \def\cF{\mathcal F}       \def\cI{\mathcal I}
+\def\cL{{\mathcal L}}           \def\cM{\mathcal M}       \def\cP{{\mathcal P}}
+\def\cU{\mathcal U}             \def\cV{\mathcal V}       \def\cJ{\mathcal J}
+\def\cS{\mathcal S}             \def\cD{\mathcal D}
+\def\cW{\mathcal W}             \def\cY{\mathcal Y}
+
+
+
+\def\endpf{\qed}
+\def\ms{\medskip}
+\def\N{{\mathbb N}}            \def\Z{{\mathbb Z}}      \def\R{{\mathbb R}}
+\def\C{{\mathbb C}}            \def\T{{\mathbb T}}         \def\oc{\hat \C}
+\def\Q{{\mathbb Q}}
+\def\1{1\!\!1}
+\def\and{\text{ and }}        \def\for{\text{ for }}
+\def\tif{\text{ if }}         \def\then{\text{ then }}
+\def\Cap{\text{Cap}}          \def\Con{\text{Con}} \def\Per{\text{{\rm Per}}}
+\def\Comp{\text{Comp}}        \def\diam{\text{\rm {diam}}}
+\def\dist{\text{{\rm dist}}}  \def\Dist{\text{{\rm Dist}}}
+\def\Crit{\text{Crit}}        \def\vol{\text{{\rm vol}}}
+\def\Sing{\text{Sing}}        \def\conv{\text{{\rm conv}}}
+\def\Fin{{\mathcal F}in}      \def\Mod{\text{{\rm Mod}}}
+\def\F{{\mathcal F}}          \def\Jac{\text{{\rm Jac}}}
+\def\h{{\text h}}
+\def\hmu{\h_\mu}           \def\htop{{\text h_{\text{top}}}}
+\def\H{\text{{\rm H}}}     \def\HD{\text{{\rm HD}}}   \def\DD{\text{DD}}
+\def\BD{\text{{\rm BD}}}   \def\PD{\text{PD}}         \def\PC{\text{{\rm PC}}}
+\def\re{\text{{\rm Re}}}    \def\im{\text{{\rm Im}}}  \def\PG{\text{{\rm PG}}}
+\def\Int{\text{{\rm Int}}} \def\St{\text{{\rm St}}} \def\Area{\text{{\rm Area}}}
+%\def\ep{\text{e}}
+\def\CD{\text{CD}}         \def\P{\text{{\rm P}}}     \def\Id{\text{{\rm Id}}}
+\def\Hyp{\text{{\rm Hyp}}} \def\sign{\text{{\rm sgn}}}
+\def\A{\mathcal A}             \def\Ba{\mathcal B}       \def\Ca{\mathcal C}
+\def\Ha{\mathcal H}
+\def\L{{\mathcal L}}           \def\M{\mathcal M}        \def\Pa{{\mathcal P}}
+\def\U{\mathcal U}             \def\V{\mathcal V}
+\def\W{\mathcal W}             \def\Pk{{\mathbb P}^k}
+\def\a{\alpha}                \def\b{\beta}             \def\d{\delta}
+\def\De{\Delta}               \def\e{\varepsilon}          \def\f{\phi}
+\def\g{\gamma}                \def\Ga{\Gamma}           \def\l{\lambda}
+\def\La{\Lambda}              \def\om{\omega}           \def\Om{\Omega}
+\def\Sg{\Sigma}               \def\sg{\sigma}
+\def\Th{\Theta}               \def\th{\theta}           \def\vth{\vartheta}
+\def\ka{\kappa}
+\def\Ka{\Kappa}
+
+\def\bi{\bigcap}              \def\bu{\bigcup}
+\def\({\bigl(}                \def\){\bigr)}
+\def\lt{\left}                \def\rt{\right}
+\def\bv{\bigvee}
+\def\ld{\ldots}               \def\bd{\partial}         \def\^{\tilde}
+\def\club{\hfill{$\clubsuit$}}\def\proot{\root p\of}
+\def\tm{\widetilde{\mu}}      \def\du{\bigoplus}
+\def\tn{\widetilde{\nu}}
+\def\es{\emptyset}            \def\sms{\setminus}
+\def\sbt{\subset}             \def\spt{\supset}
+\def\gek{\succeq}             \def\lek{\preceq}
+\def\eqv{\Leftrightarrow}     \def\llr{\Longleftrightarrow}
+\def\lr{\Longrightarrow}      \def\imp{\Rightarrow}
+\def\comp{\asymp}
+\def\upto{\nearrow}           \def\downto{\searrow}
+\def\sp{\medskip}             \def\fr{\noindent}        \def\nl{\newline}
+\def\ov{\overline}            \def\un{\underline}
+\def\ess{{\rm ess}}
+%\def\ni{\noindent}
+\def\cl{\text{cl}}
+%\def\QED{\hfill \Box}
+\def\om{\omega}
+\def\bt{{\bf t}}
+\def\Bu{{\bf u}}
+\def\tr{t}
+\def\bo{{\bf 0}}
+\def\nut{\nu_\lla^{\scriptscriptstyle 1/2}}
+\def\arg{\text{arg}}
+\def\Arg{\text{Arg}}
+\def\re{\text{{\rm Re}}}
+\def\gr{\nabla}
+\def\supp{\text{{\rm supp}}}
+\def\endpf{{\hfill $\square$}}
+\def\Fa{\mathcal F}
+\def\Gal{\mathcal G}
+%\def\1{1\!\!1}
+\def\D{{\mathbb D}}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\mint}{ \hspace{0.1cm} {\bf -} \hspace{-0.41cm} \int  }
+
+\newcommand{\amsc}{{\mathbb C}} \newcommand{\amsr}{{\mathbb R}}
+\newcommand{\amsz}{{\mathbb Z}}
+\newcommand{\amsn}{{\mathbb N}} \newcommand{\amsq}{{\mathbb Q}}
+\newcommand{\amsd}{{\mathbb D}}
+\newcommand{\amss}{{\mathbb S}} \newcommand{\amsb}{{\mathbb B}}
+\newcommand{\amsh}{{\mathbb H}}
+\newcommand{\amst}{{\mathbb T}} \newcommand{\amsp}{{\mathbb P}}
+
+\newcommand{\rr}{{\mathcal R}}
+\newcommand{\cbar}{\hat{{\mathbb C}} }
+
+\newcommand{\lam}{\lambda}
+\newcommand{\ep}{\varepsilon}
+\newcommand{\ph}{\varphi}
+\newcommand{\al}{\alpha}
+\newcommand{\ga}{\gamma}
+
+%\newcommand{\jul}{{\mathcal J}_f}
+\newcommand{\jul}{J(f)}
+\newcommand{\fat}{{\mathcal F}_f}
+\newcommand{\sing}{sing(f^{-1})}
+\newcommand{\conical}{\Lambda _c}
+\newcommand{\radii}{{\mathcal R}_z}
+\newcommand{\exc}{{\mathcal E}_f}
+\newcommand{\cri}{{\mathcal C}_f}
+\newcommand{\post}{{\mathcal P}_f}
+\newcommand{\measure}{C^\al _{\mathcal F}}
+
+
+% Perron-Frobenius operator:
+%\newcommand{\pf}{\mathcal{L}_\ph}
+\newcommand{\pft}{{\mathcal{L}}_t}
+\newcommand{\npft}{{\hat{\mathcal{L}}_t}}
+\newcommand{\npf}{\tilde{\mathcal{L}}_\ph}
+\newcommand{\good}{{\mathcal{G}}_\ph}
+\newcommand{\bad}{{\mathcal{B}}_\ph}
+
+\newcommand{\pftl}{{\mathcal{L}_{t,\l }}}
+\newcommand{\pftolo}{{\mathcal{L}_{t_0 ,\l _0 }}}
+
+\newcommand{\wei}{{\mathcal P}_\Lambda}
+%******** derivees partielles complexes *************************
+\newcommand{\pa}{\partial } \newcommand{\pab}{\overline{\partial }}
+%************************ Theorems etc.  *********************
+%***********************************************
+%************************ Dfnts for this particular document:  *********************
+\newcommand{\rad}{{\mathcal J}_r(f)}
+\def\fo{f_{\l^0}}
+\def\julo{{\mathcal J}(\fo)}
+\def\jull{{\mathcal J}(f_\l)}
+\newcommand{\radl}{{\mathcal J}_r(f_\l)}
+\def\Jgg{{\mathcal J}(g_\g)}
+\def\Jgo{{\mathcal J}(g_{\l^0})}
+\def\jo{{\mathcal J}_0}
+\def\J{\mathcal J}
+
+\newcommand{\Jl}{{\mathcal J}_r(f_\l)}
+\newcommand{\JPl}{{\mathcal J}_r(f\circ P_\l)}
+
+
+%************************************************************************
+\begin{document}
+%***********************************************
+
+\title[]
+{ \bf\large {\Large S}tochastics and Thermodynamics \\ \ \\ for \\ \ \\
+  Equilibrium Measures \\ of \\ Holomorphic 
+  Endomorphisms \\ on \\ Complex Projective Spaces \\ \ \ }
+\date{\today}
+% % author information %
+
+\author[\sc Michal SZOSTAKIEWICZ]{\sc Michal Szostakiewicz}
+\address{Anna Zdunik, Institute of Mathematics, Warsaw University,
+ul. Banacha 2, 02-097 Warszawa, Poland}
+\email{M.Szostakiewicz@mimuw.edu.pl}
+\author[\sc Mariusz URBA\'NSKI]{\sc Mariusz URBA\'NSKI}
+\address{Mariusz Urba\'nski, Department of Mathematics,
+ University of North Texas, Denton, TX 76203-1430, USA}
+\email{urbanski\@unt.edu\newline \hspace*{0.3cm} Web:
+www.math.unt.edu/$\sim$urbanski}
+\author[\sc Anna ZDUNIK]{\sc Anna Zdunik}
+\address{Anna Zdunik, Institute of Mathematics, Warsaw University,
+ul. Banacha 2, 02-097 Warszawa, Poland}
+\email{A.Zdunik\@@mimuw.edu.pl}
+
+% dedication %
+%\dedicatory{}
+%
+% AMS information %
+\thanks{The research of the second author supported in part by the
+NSF Grant DMS 1001874. The research of the first and third
+author supported in 
+part by the Polish MNiSW Grants N N201 0234 33 and N N201 607940}
+\keywords{
+Holomorphic dynamics, complex projective spaces,
+Julia sets, topological pressure, equilibrium states, H\"older
+continuous potentials, Perron-Frobenius operators, exponential decay
+of correlations, Central Limit Theorem, the Law of Iterated Logarithm 
+}
+\subjclass{Primary: 37D35; Secondary: 32H50, 37C40, 28D05}
+
+\begin{abstract}
+It was proved in \cite{uzpk} that for every  holomorphic endomorphism
+$f:\Pk\to\Pk$ of a complex 
+projective space $\Pk$,$k\ge 1$, there exists a positive number
+$\ka_f>0$ such that if $\phi:J\to\R$ is a H\"older continuous
+function with $\sup(\phi)-\inf(\phi)<\ka_f$ (pressure gap), then $\phi$ admits a
+unique equilibrium state $\mu_\phi$ on $J$. In this paper we prove
+that the dynamical system ($f,\mu_\phi$) enjoys exponential 
+decay of correlations of H\"older continuous observables as well as
+the Central Limit Theorem and the Law of Iterated Logarithm for such
+class of variables satisfying the natural co-boundary condition. We
+also show that the topological pressure
+function $t\mapsto P(t\phi)$ is real--analytic throughout the open set
+of parameters $t$ for which  the potenials $t\phi$ have pressure gaps.
+\end{abstract}
+
+\maketitle
+
+%***********************************************
+\section{Introduction}
+
+\sp\fr Fix an integer $k\ge 1$. Let $f:\Pk\to\Pk$ be a holomorphic
+endomorphism of degree $d\ge 2$ of the complex projective space $\Pk$.
+Denote by $J=J(f)$ the Julia set of the map $f:\Pk\to\Pk$, i. e.
+the topological support of the measure of maximal entropy. The map
+$f:\Pk\to\Pk$ is called regular if its exceptional set $E=E(f)$ does
+not intersect the Julia set $J=J(f)$. Let $\phi:J(f)\to\R$ be a
+continuous function, in the 
+sequel frequently refered to as a potential. By $P(\phi)$  
+we denote the (classical) topological pressure of the potential $\phi$
+with respect to the dynamical system $f:J(f)\to J(f)$. Its definition
+and a systematic account of properties can be found for example in
+\cite{PU}.  If $\mu$ is a Borel probability $f$-invariant measure on
+$J(f)$, we denote by $\hmu(f)$ its Kolmogorov--Sinai metric entropy. The
+relation between pressure and entropy is given by the following celebrated
+Variational Principle.
+\begin{equation}\label{VP}
+\P(\varphi)=\sup\lt\{\hmu(f)+\int\varphi d\mu\rt\},
+\end{equation}
+where the supremum is taken over all Borel probability $f$-invariant
+measures $\mu$, or equivalently, over all Borel probability
+$f$-invariant ergodic measures $\mu$. The measures $\mu$ for which 
+$$
+\hmu(f)+\int\phi\, d\mu=\P(\phi)
+$$ 
+are called equilibrium states for the potential
+$\phi$. The main theorem proved in \cite{uzpk} was this.
+
+\
+
+\bthm\label{AA}
+For every  regular holomorphic endomorphism $f:\Pk\to\Pk$ of a complex
+projective space $\Pk$, $k\ge 1$, there exists a positive number
+$\ka_f>0$ such that if $\phi:J(f)\to\R$ is a H\"older continuous
+function with $\sup(\phi)-\inf(\phi)<\ka_f$ (we then say that $\phi$
+has a pressure gap), then $\phi$ admits a
+unique equilibrium state $\mu_\phi$ on $J$. This equilibrium state is
+equivalent to a fixed point of the normalized dual Perron-Frobenius
+operator. In addition the
+dynamical system $(f,\mu_\phi)$ is K-mixing, whence ergodic. In the
+case when the Julia set $J$ does not intersect any periodic
+irreducible algebraic varieties contained in the critical set of $f$,
+we have that $\ka_f=\log d$.
+\ethm
+
+\
+
+\fr The main object of our paper will be the dynamical system
+($f,\mu_\phi$). We shall show in Theorem~\ref{t220110627} that this
+system enjoys exponential 
+decay of correlations of H\"older continuous observables as well as
+the Central Limit Theorem and the Law of Iterated Logarithm for such
+class of variables satisfying the natural co-boundary condition. We
+also show in Theorem~\ref{t1ai1} that the topological pressure
+function $t\mapsto P(t\phi)$ 
+is real--analytic throughout the open set of parameters $t$ for which
+the potenials $t\phi$ have pressure gaps.
+
+\sp\fr This paper is self-contained in the sense that all notions used
+are introduced and all the steps leading to the main theorems are
+explained. Majority of proofs however are exactly the same as those for the
+$1$--dimensional case delt with in \cite{SUZ1}, and pointing out the
+particular fragment of \cite{SUZ1} we refer the
+reader to this paper for proofs.
+
+\
+
+\section{Good Holomorphic Inverse Branches}
+
+\sp\fr Given an open connected subset $W$ of $\Pk$ and given an
+integer $n\ge 1$, we denote by $I_n(W)$ the collection of all
+connected components of $f^{-n}(W)$. If $V\in I_n(W)$ and $f|_V^n:V\to
+W$ is a bijection (equivalently an injection), we set
+$$
+f_V^{-n}:=(f|_V^n)^{-1}:W\to V.
+$$
+We denote the callection of all such components by $\PG_n(W)$ and
+refere to them as pre-good components. Of course, if $V\in\PG_n(W)$,
+then the map $f_V^{-n}:W\to V$ is a holomorphic homeomorphism from $W$
+to $V$. We call it the holomorphic inverse branch of $f^n$ from $W$ to
+$V$. The main result of this section is the following.
+
+\
+
+\blem\label{l1fiw20110702}
+For every $\g\in (0,1)$ and for every $\e>0$ there exist some integers
+$l,q\ge 1$ and real numbers $\eta\in (0,1)$ and $\th>0$ such that if
+$B$ is an arbitrary open ball centered at a point from the Julia set $J$, and if
+$(1+\eta)^2B$ is disjoint from the set $\PC_l$, then for every integer $n\ge 1$
+there exists a subset $G_n(B)\sbt \PG_{qn}(B)$ with the following properties. 
+
+\begin{itemize}
+
+\sp\item[(a)] For every $V\in G_n(B)$ there exists
+              $W\in\PG_{qn}((1+\eta)B)$ such that $V\sbt W$.
+
+\sp\item[(b)] If $V\in G_{n+1}(B)$, then $f^q(V)\in G_n(B)$.
+
+\sp\item[(c)] If $V\in G_{n+1}(B)$, then $\diam(V)\le \g^n$.
+
+\sp\item[(d)] $\mu_\phi\(\bu G_n(B)\)\ge (1-\e)\mu_\phi(B)$, where
+              $\bu G_n(B):=\bu\{V:V\in G_n(B)\}$  
+\sp\item[(e)] $\mu_\phi\(\bu B_n(B)\)\le e^{-\th qn}$, \nl
+              where
+              $B_n(B)$ consists of all connected components of the sets
+              $f^{-qn}(V)$, $V\in G_{n-1}(B)$ that do not belong to 
+              $G_n(B)$ and  $\bu G_n(B):=\bu\{V:V\in G_n(B)\}$. 
+\end{itemize}
+\elem
+
+\
+
+\fr Applying Cauchy's formulas for partial derivatives, we directly
+obtain from Lemma~\ref{l1fiw20110702} the following.
+
+\
+
+\bcor\label{c120110706}
+With the hypotheses of Lemma~\ref{l1fiw20110702} we have that there
+exists a constant $C_\eta>0$ such that
+$$
+||Df_V^{-n}||_\infty\le C_\eta\g^n
+$$
+for all $n\ge 0$ and all $V\in G_n(B)$.
+\ecor
+
+\
+
+\fr Let 
+$$
+\phi_q=\sum_{j=0}^{q-1}\phi\circ f^j
+$$
+The most signifcant consequence of belongin to $G_n(B)$ is this.
+There exists a constant $C_q\ge 1$ such that for every $n\ge 1$, every
+$V\in G_n(B)$ and all $x,y\in V$, we have that 
+\begin{equation}\label{potentialdistortion}
+\frac{\exp\(S_n\phi_q(x)\)}{\exp\(S_n\phi_q(y)\)}\le C_q,
+\end{equation}
+where in here $S_n$ refers to Birkhoff's sums corresponding to the
+dynamical system $f^q:\Pk\to\Pk$.
+
+\
+
+\section{Selection of the Root Ball}
+
+\sp\fr Simplyfying the proof of Lemma~9 in \cite{SUZ1}, we prove the
+following.
+
+\
+
+\blem\label{l320110702}
+Let $a<b$ be two real numbers. If $\mu$ is a Borel finite measure on
+$[a,b]$, then for every $\l>1$ large enough there exist a point $c\in
+(a,b)$ (in fact a measurable set of positive Lebesgue measure of such
+points $c$) and $\tilde\l>1$ such that
+$$
+\mu\((c-\tilde\l^{-n},c+\tilde\l^{-n})\)\le \l^{-n}
+$$
+for all integers $n\ge 1$.
+\elem
+
+\sp\fr We now keep the setting of Lemma~\ref{l1fiw20110702} with $\e:=1/2$. As a
+straightforward consequence of the abstract Lemma~\ref{l320110702}, we
+shall prove the following.
+
+\
+
+\blem\label{l420110702}
+For every point $w\in J\sms\PC_l$ there exists a ball $B$ centered at
+$w$ such that $(1+\eta)B\cap\PC_l=\es$ and 
+$$
+\mu_\phi\(B(\bd B,\l^{-3n})\)\le\l^{-n}.
+$$
+\elem
+
+\begin{proof}
+Take any $R>0$ so small that $(1+\eta)B(w,R)\cap\PC_l=\es$ and consider
+the map $P:\ov B(w,R)\to[0,R]$ given by the formula
+$P(z)=||z-w||$. Applying Lemma~\ref{l320110702} to the measure
+$\mu_\phi\circ P^{-1}$ the assertion of Lemma~\ref{l420110702} immediately
+follows. 
+\end{proof}
+
+\
+
+\section{Fine Inducing Scheme}\label{fis}
+
+\sp\fr Assume without loss of generality that $\P(\phi)=0$. Fix an
+integer $r\ge 1$ so large that
+\beq\label{120110706}
+C_\eta\g^r\le \frac14,
+\eeq
+where the constant $C_\eta$ comes from Corollary~\ref{c120110706}. More
+requirements on $r$ will be imposed later. Put 
+$$
+h=f^{qr}:\Pk\to\Pk.
+$$
+and
+$$
+\phi_0:=\sum_{j=0}^{qr-1}\phi\circ f^j.
+$$
+Define
+$$
+\L_0:=\L_\phi^{qr}:C(J)\to C(J).
+$$
+So, $\L_0$ is the Perron-Frobenius operator associated to the map
+$h:J\to J$ and potential $\phi_0:J\to\R$. It is given by the formula
+$$
+\L_0(g)(x)=\sum_{y\in h^{-1}(x)}g(y)\exp(\phi_0(y)).
+$$
+In exactly the same way as in \cite{uzpk} we can prove the following.
+
+\
+
+\begin{lem}\label{czest}
+Assume that $Q\sbt\Pk$ is a set for which there exists $\beta>0$ such that 
+\begin{equation}\label{frec}
+\mathcal{L}_h(1_{Q})(x)>\beta
+\end{equation}
+for almost every $x\in J(f)$.
+Then there exist $\alpha\in (0,1)$, an integer $n_0\ge 0$, and
+$\delta>0$, all three depending on $\beta$ only (in particular
+independent of $r\ge 1$), such that for all $n\ge n_0$ we have that,
+\begin{equation}
+\mu\lt(\lt\{x\in J(f):\#\left\{0\le i\le n: h^i(x)\in Q\right\} 
+\le\alpha n\rt\}\rt)
+<\exp(-\delta n).
+\end{equation}
+\end{lem}
+
+\
+
+\fr In order to make this lemma useable for us, we need the following.
+
+\blem\label{l520110702}
+For every integer $q\ge 1$ large enough there exists $\b>0$ such that
+for every integer $r\ge 1$, we have for every $z\in J(f)$ that,
+$$
+\L_0(\1_Q)(z)\ge \b,
+$$
+where 
+$$
+Q:=Q_r:=\bu\{V:V\in G_{r-1}(B)\}.
+$$
+\elem
+
+\begin{proof}
+As a straightforward consequence of Lemma~\ref{l1fiw20110702},
+particularly its item (c), and \eqref{potentialdistortion}, we get the
+following.
+\beq\label{1beta}
+\L_\phi^{q(r-1)}\1_Q(z)\ge (2C_q)^{-1}
+\eeq
+for all $z\in B$. Now, invoking topological exactness of the dynamical
+system $f:J(f)\to J(f)$, take any $q\ge 1$ so large that $f^q(B)=J(f)$. For
+every $x\in J$ there then exists $y\in B$ such that
+$f^q(y)=x$. Apllying \eqref{1beta} we can then write
+$$
+\aligned
+\L_0(\1_Q)(x)
+&\ge \exp\(S_q\phi(y)\)\L_\phi^{q(r-1)}\1_Q(y) \\
+&\ge (2C_q)^{-1}\exp\(S_q\phi(y)\) \\
+&\ge (2C_q)^{-1}\exp\(\inf\(S_q\phi\)\).
+\endaligned
+$$
+Setting $\b$ to be the last number of this formula finishes the proof.
+\end{proof}
+
+\
+
+\fr We say that a point $z\in B$ has a good pullback of length $n\ge
+1$ if $h^n(z)\in B$ and the connected component of $h^{-n}(B)$
+containg $z$ belongs to $G_{rn}(B)$. We frequently refer to this
+component as a good pullback and denote it by $V_n(z)$. We further say
+that such a good pullback $V_n(z)$ is very good if for every $0\le j\le n-1$,
+$$
+\dist\(h^j(V_n(z)),\bd B\)\ge \tilde\l^{n-j}.
+$$
+Note that if $r\ge 1$ is so large that 
+$$
+\g^r< \tilde\l^{-1},
+$$
+then every good pullback $V$ is entirely contained in $B$. Now, the
+proof of Lemma~17 from \cite{SUZ1} goes verbatime in our present
+setting and it asserts this. 
+
+\
+
+\blem\label{Yn}
+As in Lemma~\ref{czest} let $Z_n$ be the set of all points $x\in B$ for which
+$$
+\# \left\{0\le i\le n:h^i(x)\in Q\right\}>\alpha n.
+$$
+Let
+$$
+Y_n
+:=\lt\{x\in Z_n:\#\{0\le j\le n:{\rm the ~~pullback~~}V^x_j{\rm ~~is~~
+     good}\}<(\alpha/2)n\rt\}.
+$$
+Then with $r\ge 1$ sufficiently large, we have that 
+$$
+\mu_\phi(Y_n)<e^{-{\alpha\over 8}nr\theta q}.
+$$
+\elem
+
+\
+
+\fr The proof of the next lemma is also the same as the proof of a lemmma
+from \cite{SUZ1}. This time this is Lemma~18. The only modification is
+that $\bd U$ is to be replaced by $\bd B$. 
+
+\
+
+\blem\label{verygood}
+Let $R_n\subset B$ be the set of points in $x\in Z_n$ that satisfy the
+following two requirements.
+
+\begin{itemize}
+\item[(1)]$x\in B\setminus Y_n$, i.e. the points in $R_n$ have
+  at least ${\alpha\over 2}n$ good pullbacks, but 
+\item[(2)] No good pullback $V_m(x)$ with $m\le n$, is very good. 
+\end{itemize}
+Then
+$$
+\mu_\phi(R_n)\le (\lambda'')^{-n}
+$$
+with some $\l''>1$ independent of $n$.
+\elem
+
+\
+
+\section{Construction of the induced system}\label{constr}
+
+\sp\fr Let 
+$$
+X=\bu_{n=1}^\infty Z_n\sms(Y_n\cup R_n)
+$$
+It directly follows from Lemma~\ref{czest}, Lemma~\ref{l520110702},
+Lemma~\ref{Yn}, and Lemma~\ref{verygood} that 
+\beq\label{muphiX=1}
+\mu_\phi(X)=\mu_\phi(B).
+\eeq
+Given $x\in X$ let $n(x)$ be the smallest integer $n\ge 1$ such that
+$x\in Z_n\sms(Y_n\cup R_n)$. We define
+$$
+F(x)=h^{n(x)}(x).
+$$ 
+Keep this $x\in X$ and put $n=n(x)$. Note that, if $y\in V_n(x)$
+then this procedure, applied to $y$ leads to the same component
+$V_n$. 
+Indeed, by the definition of the induced map, we use the earliest very
+good pullback. Thus, if $F(y)\neq h^n(y)$ then $F(y)=h^m(y)$ for some
+$m<n$. Let $V_m(y)$ be the corresponding pullback. Then $V_m(y)\cap
+V_n(x)\neq\emptyset$ as $y$ belongs to both of these sets, but
+$V_n(x)\nsubseteq V_m(y)$ since $x\in V_n(x)\setminus V_m(y)$.  
+ Let us consider $h^m( V_m(y))=U$ and $h^m(V_n(x))$. The latter is
+an element of the pullback chosen for $x$ (a component of
+$h^{-(n-m)}(B)$) and, since  $V_n(x)$ must intersect $\partial V_m(y)$, 
+also $h^m(V_n(x))$ intersects $\partial B$. But this is impossible by
+the definition of very good pullbacks. Let $\mathcal D$ 
+be the countable family of all sets $V_{n(x)}(x)$, $x\in X$, defined in this
+way. We have just shown that the function $n:X\to\N$ is constant on
+each disc $D\in \mathcal D$, and so it can and will be treated as a
+function from $\mathcal D\to\N$. In particular, the map  
+$$
+F:\bigcup_{D\in\mathcal D}\to B
+$$
+is well-defined and its inverse branches $F_D^{-1}:U\to D$,
+$D\in\mathcal D$, form an infinite iterated function
+systems, which, with a slight abuse of notation, will be also refered
+to as $F$. We denote by $J_F$ the limit set of the iterated function
+system $F$, i.e.
+\beq\label{limisetIFS}
+J_F=\bi_{n=0}^\infty F^{-n}(X).
+\eeq
+The argument leading to \eqref{muphiX=1} gives in fact more. Namely:
+\beq\label{fullmeasurelimisetIFS}
+\mu_\phi(J_F)=\mu_\phi(B).
+\eeq    
+It immediately follows from the construction of the system $F$ and
+Lemma~\ref{verygood}, that
+\begin{equation}\label{expdecay20110622}
+m_\phi\lt(\bu\lt\{D:n(D)=n\rt\}\rt)\le (\lam'')^{-n}
+\end{equation}
+for all $n\ge 1$.
+Let us record the following, proved in the same way as Lemma~19 in
+\cite{SUZ1}, essential property of this induced system. 
+
+\
+
+\begin{lem}
+If $D_1$, $D_2$ are two domains in $\mathcal D$, $F_{|D_1}=h^n$,
+$F_{|D_2}=h^m$ then for $0\le s< n$, $0\le t< m$ either ${h^s(D_1)}\cap
+{h^t(D_2)}=\emptyset$ or the closure of one 
+of these sets is contained in the other set. 
+\end{lem}
+
+\
+
+\fr For the sake of Proposition~\ref{muphiFinvariant}, we need to extend the
+potential $\phi$ beyond the Julia sets $J(f)$. 
+
+\
+
+\begin{lem}\label{holderextension}
+The function $\phi$ can be extended in a H\"older continuous manner,
+with the same H\"older exponent, to the whole projective space $\Pk$.  
+\end{lem}
+
+\
+
+\fr This lemma is well-known; a proof can be found in \cite{uzpk}.
+From now on, we assume that the potential $\phi$ is defined and
+H\"older continuous in the whole Riemann sphere $\oc$. 
+
+\sp\fr As we have passed to induced system, we shall modify the potential
+$\phi$ accordingly to this inducing process. 
+First, if $D\in\mathcal{D}$ is one of discs on which $F$ is defined,
+then we put, for all $x\in D$, that
+$$
+\hat\phi(x)=\sum_{k=0}^{n(D)-1}S_{qr}\phi(h^k(x)).
+$$
+Then, for all Borel sets $A\subset D_e$ we have that,
+$$
+\aligned
+m_\phi(F(A))
+&=m_\phi(h^{n(D)}(A))
+=\int_A\exp\lt(-\sum_{k=0}^{n(D)-1}S_{qr}\phi\circ h^k\rt)dm_\phi \\
+&=\int_A\exp\(-\hat\phi(x)\)dm_\phi(x).
+\endaligned
+$$
+Along with \eqref{fullmeasurelimisetIFS} this entails the following.
+
+\
+
+\begin{lem}\label{mphiFconformality}
+The probability measure $m_\phi$ is $\exp(-\hat\phi)$-conformal for the
+map $F:J_F\to J_F$. 
+\end{lem}
+
+\
+
+\fr Having Lemmas~\ref{mphiFconformality} and \ref{holderextension}, the
+general theory of infinite iterated function systems, as developed 
+in \cite{mu} along with \cite{MU}, gives the following.
+
+\
+
+\begin{prop}\label{muphiFinvariant}
+There exists a unique probability $F$-invariant measure
+$\mu_{\hat\phi}$ which is equivalent to $m_\phi$. Moreover the
+Radon-Nikodym derivative $\hat\rho:={{d\mu_{\hat\phi}}\over{d m_\phi}}$
+is bounded above and separated below from zero. This Radon-Nikodym
+derivative $\hat\rho$ has a continuous extension $\hat\rho:B\to
+(0;+\infty)$ to the whole ball $B$ and this extension is a fixed point
+of the following transfer operator.
+$$
+\mathcal{L}_{\hat\phi}(v)(x)
+=\sum_{y\in  F^{-1}(x)}\exp\hat\phi(y)v(y).
+$$
+This is a bounded linear operator acting on the Banach space $C_b(B)$
+of all bounded real-valued continuous functions defined on $B$, and it is easy
+to see that this operator is almost periodic. 
+\end{prop}
+
+\
+
+\section{Real Analytyicity of Topological Pressure}
+
+\sp\fr For every H\"older continuous potential $\phi:J(f)\to\mathbb{R}$, let
+$$
+\Delta_\phi=\lt\{t\in\mathbb{R}:\sup_{n\ge 1}\lt(
+  P(t\phi)-\frac{1}{n}\sup (S_n(t\phi))\rt)>0\rt\}.
+$$
+Obviously, $\Delta_\psi$ is an open subset of $\mathbb{R}$. Having all
+the material of the previous sections 
+i.e. Section~\ref{fis} and Section~\ref{constr}, particularly 
+formula \eqref{expdecay20110622}, we can repeat verbatime Section~6,
+Real Analytyicity of the Pressure Function, from \cite{SUZ1} to get
+the following. 
+
+\
+
+\begin{thm}\label{t1ai1}
+The topological pressure function 
+$$
+\Delta_\phi\ni t\mapsto P(t\phi)\in\mathbb{R}
+$$ 
+is real--analytic.
+\end{thm}
+
+ 
+\section{Stochastic properties of the equilibrium
+  measure $\mu_\phi$}\label{stochastic} 
+
+\fr In this section we obtain strong transparent stochastic properties of the
+dynamical system $(f,\mu_{\phi})$. We deduce them from the
+corresponding properties of the induced system
+$(F,\mu_{\hat\phi})$. We follow the scheme worked out in 
+\cite{lsy} in the way it was presented in \cite{SUZ1}. We recall it briefly
+now. We do this in an abstract 
+context. Let $(\Delta_0,\mathcal{B}_0,m_0)$ be a
+measure space with a finite measure $m_0$, let $\mathcal{P}_0$ be a
+countable measurable  
+partition of $\De_0$ and let $T_0:\Delta_0\to \Delta_0$ be a
+ measurable map such that, for every 
+  $\Delta'\in\mathcal{P}_0$ the map $T_0:\Delta'\to \Delta_0$ is a
+  bijection onto $\Delta_0$. Moreover, we assume that   the partition
+  $\mathcal{P}_0$ is generating, i.e. for every $x,y\in\Delta_0$ there
+  exists $s\ge 0$ such that $T_0^s(x), T_0^s(y)$ are in different
+  elements of the partition $\mathcal{P}_0$. We denote by $s=s(x,y)$
+the smallest integer with this property and we
+call it a separation time for the pair $x,y$.
+We assume also  that for each $\Delta'\in\mathcal{P}_0$ the map
+$({T_0}_{|\Delta'})^{-1}$ is measurable and that the Jacobian  
+$Jac_{m_0}(T_0)$ with respect to the measure $m_0$ is well--defined and
+positive a.e. in $\Delta'$. The 
+following distortion property is assumed to be satisfied. 
+\begin{equation}\label{youngcond0}
+\left |\frac{\Jac_{m_0} T_0(x)}{\Jac_{m_0} T_0(y)}-1\right |
+\le C\beta^{s_0(T_0(x),T_0(y))}.
+\end{equation}
+We have also a function $R:\Delta_0\to\mathbb{N}$ ("return time")
+which is constant on each element of the partition  
+$\mathcal{P}_0$.
+We assume that the greatest common divisor of the values of $R$ is
+equal to $1$. Finally, let 
+$$
+\Delta=\{(z,n)\in\Delta_0\times\mathbb{N}\cup\{0\}:0\le n<R(z)\}
+$$
+and each point $z\in\Delta_0$ is identified with $(z,0)$. The map $T$
+acts on $\Delta$ as 
+$$
+T(z,n)=
+\begin{cases}
+(z, n+1)~~{\rm if}~~ n+1<R(z)\\
+(T_0(z),0)~~{\rm if}~~ n+1=R(z)
+\end{cases}
+$$
+The measure $m_0$ is spread over the whole space $\Delta$ by putting
+$$
+\tilde m_{|\Delta_0}=m_0 
+\  \  \text{ and }  \  \
+\tilde m_{|\Delta'\times\{j\}}
+={m_0}_{|\Delta'}\circ\pi^{-1}_j, \  \De'\in \mathcal{P},
+$$
+where $\pi_j(z,0)=(z,j)$. Thus, the measure $\tilde m$ is finite iff
+$\int_{\Delta_0}Rdm_0<\infty$. 
+The separation time $s((x,n),(y,m))$ is defined to be equal to $s(x,y)$
+if $n=m$ and $x,y$ are in the same set of the partition
+$\mathcal{P}$. Otherwise we set $s(x,y)=0$. Given $\b>0$ we define
+the space
+$$
+C_\beta(\De)=\{\varphi:\Delta\to \mathbb{R}:\exists \ C_\varphi~~{\rm such~
+  that}~~|\varphi(x)-\varphi(y)|
+<C_\varphi\beta^{s(x,y)}~~\forall x,y\in\Delta\}.
+$$
+We refer to the pentapol $\mathcal{Y}=(\De_0,T_0,\mathcal{P}_0,R,m_0)$
+as a Young 
+tower. The first three items of the following basic result have been
+proved in \cite{lsy} while the fourth item was proved in \cite{SUZ1}.  
+
+\
+
+\begin{thm}\label{lsyoung0}
+If $\mathcal{Y}=(\De_0,T_0,\mathcal{P}_0,R,m_0)$ is a Young tower and
+$\int R dm_0<\infty$ then the following hold.
+
+\sp\begin{enumerate}
+\item{} There exists a unique probability  
+$T$--invariant measure $\nu$, absolutely continuous with respect to
+$\tilde m$. The Radon-Niokodym derivative $d\nu/d\tilde m$ is bounded
+from below by a positive constant. The dynamical system $(T,\nu)$ is
+exact, thus ergodic. 
+\sp\item{} If $m_0(R>n)=O(\theta^n)$ for some $0<\theta<1$, then there
+exists $0<\tilde\theta<1$ such that for all functions $\psi\in
+L^\infty$ and we have $ g\in C_\beta$,  
+\begin{equation}\label{cov}
+Cov(\psi\circ T^n, g)
+=\lt|\int (\psi\circ T^n) g d\nu-\int\psi d\nu\int g d\nu\rt|
+=O(\tilde\theta^n) 
+\end{equation}
+\item{} If $m_0(R>n)=O(n^{-\alpha})$ with some $\alpha>1$ (in
+  particular, if $m_0(R>n)=O(\theta^n)$), then  the Central Limit
+  Theorem is satisfied for all functions $ g\in C_\beta$, that
+  are not cohomologous to a constant in $L^2(\nu)$. 
+
+\sp\item{} If $m_0(R>n)=O(n^{-\alpha})$ with some $\alpha>4$ (in
+  particular, if $m_0(R>n)=O(\theta^n)$), then the Law of
+  Iterated Logarithm holds for all functions $ g\in C_\beta$, that
+  are not cohomologous to a constant in $L^2(\nu)$. This means that
+  there exists a real positive number $A_g$  such that such that
+  $\nu$ almost everywhere  
+$$
+\limsup_{n\to\infty}\frac{S_{n}g-n\int gd\mu}{\sqrt{n\log\log n}}=A_g. 
+$$
+\end{enumerate}
+\end{thm}
+
+\
+
+\fr Passing to our holomorphic dynamical system ($f,\mu_\phi$) we
+shall check that the assumptions of this  theorem are 
+satisfied for our induced system $(F,m_\phi)$.    
+The space $\Delta_0$ is now $J_F$, the limit set of the iterated
+function system $F$. The partition $\mathcal{P}_0$ consists of the
+sets $D\cap J_F$, $D\in\cD$. The measure $m_0$ is the
+conformal measure $m_\phi$, restricted to $J_F$.  
+The map $T_0$ is, in our setting, the map $F$. The function $R$, the
+return time, is, naturally, defined as $R(D)=n(D)$. We shall check
+that the pentapol $\cY_\phi=(J_F,F,\cP,n,m_\phi)$ is a Young
+Tower, i.e. it satisfies the hypotheses of Theorem~\ref{lsyoung0}. We
+start with the following. 
+
+\
+
+\blem\label{l220110705}
+There exists a constant $C>0$ such that if $D\in\mathcal D$ and $x,y\in D$, then
+$$
+\dist(x,y)\le C4^{-s(x,y)}
+$$
+\elem
+
+\begin{proof}
+The assertion follows immediately from Corollary~\ref{c120110706},
+formula \eqref{120110706}, and the definition of the separation time $s$. 
+\end{proof}
+
+\
+
+\fr As a fairly straightforward consequence of this lemma, we get the
+following.
+
+\
+
+\blem\label{l320110705}
+If $D\in\cD$ and  and $x,y\in D$, then
+$$
+\dist(h^j(x),h^j(y))\le 2C2^{-s(x,y)}
+$$
+for all $0\le j\le n(D)$.
+\elem
+
+\begin{proof}
+Note that $s(x,y)\ge 1$. Fix $0\le j\le n(D)$. It follows from
+Corollary~\ref{c120110706} that
+$\dist(h^j(x),h^j(y))\le\dist(h^{n(D)}(x),h^{n(D)}(y))$. But
+$s(h^{n(D)}(x),h^{n(D)}(y))=s(x,y)-1$, it therefore follows from the 
+previous lemma, that
+$$
+\dist(h^j(x),h^j(y))
+\le\dist(h^{n(D)}(x),h^{n(D)}(y))
+\le C2^{-s(h^{n(D)}(x),h^{n(D)}(y))}
+=   2C2^{-s(x,y)}.
+$$
+We are done. 
+\end{proof}
+
+\
+
+\fr We are now ready to prove the following.
+
+\
+
+\blem\label{l120110707}
+The pentapol $\cY_\phi=(J_F,F,\cP,n,m_\phi)$ is a Young
+Tower, i.e. it satisfies the hypotheses of Theorem~\ref{lsyoung0}. In
+addition, $\tilde m_\phi(\De)<+\infty$.
+\elem
+
+\begin{proof}
+First, we need to show that the formula \eqref{youngcond0}
+holds. To do this fix an arbitrary disc $D\in\cD$ and aribtrary two
+points $x,y\in J_F\cap D$. Recalling that the function $S_{qr}\phi:J(f)\to\R$ is 
+H\"older continuous with some exponent $\a>0$, and using
+Lemma~\ref{l320110705}, we can write as follows.
+$$
+\aligned
+\bigg|\log\frac{\Jac_{m_\phi}F(y)}{\Jac_{m_\phi}F(y)}\bigg|
+&=\bigg|\sum_{j=0}^{n(D)-1}S_{qr}\phi(h^j(y))
+        -\sum_{j=0}^{n(D)-1}S_{qr}\phi(h^j(x))\bigg|\\    
+&\le\sum_{j=0}^{n(D)-1}\bigg|S_{qr}\phi(h^j(y))-S_{qr}\phi(h^j(x))\bigg|\\
+&\le\sum_{j=0}^{n(D)-1}C_1\dist^\a(h^j(y),h^j(x)) \\
+&\le 2CC_1\sum_{j=0}^{n(D)-1}2^{-s(x,y)} 
+=   2CC_1n(D)4^{-s(x,y)} \\
+&\le 2CC_1s(x,y)4^{-s(x,y)} \\
+&\le C_23^{-s(x,y)}
+\endaligned
+$$
+with appropriate positive constants $C$, $C_1$, and $C_2$. 
+
+\sp\fr We also need to take care of the last assumption in
+Theorem~\ref{lsyoung0} requiring that the 
+greatest common divisor of all the values of $n(D)$, $D\in\cD$, is
+equal to $1$. If for our induced system this value is equal to some
+integer $s>1$, then we replace the map $h$ by its iterate $h^s$. The
+return times are now equal to $n(D)/s$, $D\in\cD$,
+and their greatest common divisor equals $1$. 
+
+\sp\fr The finiteness of $\tilde m_\phi(\De)$ follows
+immediately from \eqref{expdecay20110622} and the definition of the
+return time $R$.
+\end{proof}
+
+\
+
+\fr Now consider $\pi:\De\to\Pk$, the natural
+projection from the abstract tower $\De$ to the projective space $\Pk$
+given by the formula
+$$
+\pi(z,n)=h^n(z).
+$$
+Then
+\begin{equation}\label{eq120110623}
+\pi\circ T =h\circ \pi,
+\end{equation}
+$$
+{\tilde {m_\phi}}\big|_{J_F}\circ\pi^{-1}=m_0=m_\phi,
+$$ 
+and  
+$$
+\tilde{m_\phi}_{D\times\{n\}} \circ\pi^{-1} 
+={m_\phi}_{D\times\{0\}}\circ h^{-n}
+={m_0}_{|D}\circ h^{-n}
+$$ 
+for all $D\in\cD$ and all $0\le n\le n(D)$.
+Now, the measure $\tilde{m_\phi}_{D\times\{n\}} \circ\pi^{-1}$ is
+absolutely continuous 
+with respect to $m_\phi$ with the Radon-Nikodym derivative equal to
+$J_{D,n}:=\Jac_{m_\phi}(h^{-n})$ in $h^n(D)$ and zero elsewhere. Therefore,
+$$
+\aligned
+\int_{\Pk}\sum_{D\in\cD}\sum_{n=0}^{n(D)-1}J_{D,n}\,dm_\phi
+&=\sum_{D\in\cD}\sum_{n=0}^{n(D)-1}\int_{\Pk}J_{D,n}\,dm_\phi 
+ =\sum_{D\in\cD}\sum_{n=0}^{n(D)-1}\int_{h^n(D)}J_{D,n}\,dm_\phi \\
+&=\sum_{D\in\cD}\sum_{n=0}^{n(D)-1}\tilde{m_\phi}_{D\times\{n\}}
+       \circ\pi^{-1}(h^n(D))\\     
+&=\sum_{D\in\cD}\sum_{n=0}^{n(D)-1}\tilde{m_\phi}_{D\times\{n\}}
+       \circ\pi^{-1}(\P^k)\\   
+&=\tilde m_\phi\circ\pi^{-1}(\Pk) 
+ =\tilde m_\phi(\De) \\
+&<+\infty,
+\endaligned
+$$ 
+where in writing the inequality sign we used the last assertion of
+Lemma~\ref{l120110707}.
+Thus, the function $\sum_{D\in\cD}\sum_{0\le n<n(D)}J_{D,n}$ is integrable
+with respect to the measure $m_\phi$. This implies immediately that
+the measure $\tilde m_\phi\circ\pi^{-1}$ is absolutely continuous with
+respect to the measure $m_\phi$ with the Radon--Nikodyma derivative
+equal to $\sum_{D\in\cD}\sum_{0\le n<n(D)}J_{D_i,n}$.  
+Hence, the measure $\nu\circ\pi^{-1}$ is also absolutely continuous
+with respect to $m_\phi$. Since $\nu$ is $F$--invariant and $\pi\circ
+T =h\circ \pi$, the measure $\nu\circ\pi^{-1}$ is $h$--invariant. 
+But the measure $\mu_\phi$ is $h$--invariant ergodic and
+equivalent with the conformal measure $m_\phi$. Hence, $\nu\circ\pi^{-1}$
+is absolutely continuous with respect to the ergodic
+measure $\mu_\phi$. Innvariance and ergodicity of $\nu\circ\pi^{-1}$
+yield this.  
+
+\
+
+\begin{lem}\label{l120110623}
+$$
+\nu\circ\pi^{-1}=\mu_\phi.
+$$
+\end{lem} 
+
+\
+
+\fr Having this, we can prove in exactly the same way as Theorem~56
+in \cite{SUZ1}, the following. 
+
+\
+
+\begin{thm}\label{t220110627}
+For the dynamical system $(f,\mu_\phi)$ the following hold.
+\begin{enumerate}
+\item{} For every $\alpha\le 1$, every $\alpha$--H\"older continuous
+  function $g:J(f)\to \mathbb{R}$ and every bounded measurable
+  function $\psi:J(f)\to\mathbb{R}$, we have that
+$$
+\bigg|\int\psi\circ f^n \cdot g d\mu_\phi
+-\int g d\\mu_\phi\int\psi d\mu_\phi\bigg|
+=O(\theta^n)
+$$
+for some $0<\theta<1$ depending on $\alpha$.
+
+\sp\item{} The Central Limit Theorem holds for every H\"older continuous
+  function $g:J(f)\to  \mathbb{R}$ that is not
+  cohomologous to a constant in $L^2(\mu_\phi)$, i.e. for which there is no
+  square integrable function $\eta$ for which $g={\rm
+    const}+\eta\circ f-\eta$. Precisely this means that
+ there exists $\sigma>0$ such that
+$$
+\frac{1}{\sqrt{n}}{\sum_{j=0}^{n-1}g\circ f^j} \to \mathcal N(0,\sigma)
+$$ 
+in distribution.
+\sp\item{} The Law of Iterated Logarithm holds for every H\"older continuous
+function $g:J(f)\to \mathbb{R}$ that is not cohomologous to a constant
+in $L^2(\mu_\phi)$. This means that there exists a real positive
+constant $A_g$ such that such that $\mu_\phi$ almost everywhere 
+$$
+\limsup_{n\to\infty}\frac{S_{n}g-n\int gd\mu}{\sqrt{n\log\log n}}=A_g. 
+$$
+\end{enumerate}
+\end{thm}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\begin{thebibliography}{9999999}
+
+\bibitem[MU2]{mu} 
+D. Mauldin, M.Urba\'nski, Graph directed Markov
+  systems: geometry and dynamics of limit sets, Cambridge University
+  Press, 2003.
+
+\bibitem[MU3]{MU} 
+D. Mauldin, M. Urba\'nski, On the uniqueness of the
+  density of the invariant measure in an infinite hyperbolic iterated
+  function system, Periodica Math. Hung. ,37 (1998), 47-53.
+
+\bibitem[PU]{PU} 
+F. Przytycki, M. Urba\'nski, Conformal Fractals ???-
+Ergodic Theory Methods, Cambridge University Press, 2010.
+
+\bibitem[SUZ]{SUZ1}
+M. Szostakiewicz, M. Urba\'nski, A. Zdunik,
+Fine Inducing and Equilibrium Measures for Rational Functions of the
+Riemann Sphere, Preprint 2011.
+
+\bibitem[LSY]{lsy} 
+L. S. Young, Recurrence times and rates of
+mixing, Israel Journal of Mathematics, 110 (1999), 153-188.
+
+\bibitem[UZ]{uzpk}
+M. Urba\'nski, A. Zdunik,Equilibrium Measures for Holomorphic
+Endomorphisms of Complex Projective Space, Preprint 2009.
+
+
+\end{thebibliography}
+\end{document}
+
+
+
+
+
+
+
+
+
+
+
+
